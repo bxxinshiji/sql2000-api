@@ -17,7 +17,8 @@ var Conf config.Config = config.Config{
 	Name:    env.Getenv("MICRO_API_NAMESPACE", "go.micro.api.") + "sql2000-api",
 	Version: "latest",
 	Service: map[string]string{
-		"user": env.Getenv("USER_SERVICE", "go.micro.srv.user"),
+		"user":    env.Getenv("USER_SERVICE", "go.micro.srv.user"),
+		"sql2000": env.Getenv("SOCIALITE_SERVICE", "go.micro.srv.sql2000"),
 	},
 	Permissions: []*PB.Permission{
 		// 商品

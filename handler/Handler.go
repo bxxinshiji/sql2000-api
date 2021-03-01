@@ -20,7 +20,7 @@ var Conf = config.Conf
 
 // Register 注册
 func Register(Server server.Server) {
-	itemPB.RegisterItemsHandler(Server, &Item{Conf.Service["user"]}) // 权限管理服务实现
+	itemPB.RegisterItemsHandler(Server, &Item{Conf.Service["sql2000"]}) // 权限管理服务实现
 	healthPB.RegisterHealthHandler(Server, &Health{})
 
 	go Sync() // 同步前端权限
