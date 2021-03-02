@@ -18,7 +18,7 @@ var Conf config.Config = config.Config{
 	Version: "latest",
 	Service: map[string]string{
 		"user":    env.Getenv("USER_SERVICE", "go.micro.srv.user"),
-		"sql2000": env.Getenv("SOCIALITE_SERVICE", "go.micro.srv.sql2000"),
+		"sql2000": env.Getenv("SQL2000_SERVICE", "go.micro.srv.sql2000"),
 	},
 	Permissions: []*PB.Permission{
 		// 商品
