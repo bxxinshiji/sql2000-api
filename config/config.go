@@ -22,6 +22,6 @@ var Conf config.Config = config.Config{
 	},
 	Permissions: []*PB.Permission{
 		// 商品
-		{Service: "sql2000-api", Method: "Items.Get", Auth: false, Policy: false, Name: "获取商品详细", Description: "获取商品详细,包括多条码信息。"},
+		{Service: "sql2000-api", Method: "Items.Get", Auth: true, Policy: true, Name: "获取商品详细", Description: "获取商品详细,包括多条码信息。"},
 	},
 }
