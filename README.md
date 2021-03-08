@@ -1,4 +1,4 @@
-# sql2000-api 用户
+# sql2000-api 老数据库API
 
 ## MACOS开发环境
 ```
