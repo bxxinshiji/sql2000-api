@@ -16,6 +16,7 @@ api:
 .PHONY: proto
 proto:
 	protoc -I . --micro_out=. --gogofaster_out=. proto/item/item.proto
+	protoc -I . --micro_out=. --gogofaster_out=. proto/department/department.proto
 	protoc -I . --micro_out=. --gogofaster_out=. proto/health/health.proto
 
 .PHONY: docker
