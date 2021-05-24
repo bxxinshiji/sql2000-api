@@ -17,3 +17,8 @@ type Item struct {
 func (srv *Item) Get(ctx context.Context, req *pb.Request, res *pb.Response) (err error) {
 	return client.Call(ctx, srv.ServiceName, "Items.Get", req, res)
 }
+
+// EasyGet 获取商品简易信息
+func (srv *Item) EasyGet(ctx context.Context, req *pb.Request, res *pb.Response) (err error) {
+	return client.Call(ctx, srv.ServiceName, "Items.Get", req, res)
+}

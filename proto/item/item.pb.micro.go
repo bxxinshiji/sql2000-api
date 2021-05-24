@@ -36,6 +36,7 @@ var _ server.Option
 type ItemsService interface {
 	// 查询商品详情
 	Get(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error)
+	EasyGet(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error)
 }
 
 type itemsService struct {
@@ -60,16 +61,28 @@ func (c *itemsService) Get(ctx context.Context, in *Request, opts ...client.Call
 	return out, nil
 }
 
+func (c *itemsService) EasyGet(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
+	req := c.c.NewRequest(c.name, "Items.EasyGet", in)
+	out := new(Response)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for Items service
 
 type ItemsHandler interface {
 	// 查询商品详情
 	Get(context.Context, *Request, *Response) error
+	EasyGet(context.Context, *Request, *Response) error
 }
 
 func RegisterItemsHandler(s server.Server, hdlr ItemsHandler, opts ...server.HandlerOption) error {
 	type items interface {
 		Get(ctx context.Context, in *Request, out *Response) error
+		EasyGet(ctx context.Context, in *Request, out *Response) error
 	}
 	type Items struct {
 		items
@@ -84,4 +97,8 @@ type itemsHandler struct {
 
 func (h *itemsHandler) Get(ctx context.Context, in *Request, out *Response) error {
 	return h.ItemsHandler.Get(ctx, in, out)
+}
+
+func (h *itemsHandler) EasyGet(ctx context.Context, in *Request, out *Response) error {
+	return h.ItemsHandler.EasyGet(ctx, in, out)
 }

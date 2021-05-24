@@ -5,6 +5,7 @@ package item;
 service Items {
     // 查询商品详情
     rpc Get(Request) returns (Response) {}
+    rpc EasyGet(Request) returns (Response) {}
     
 }
 
@@ -55,6 +56,7 @@ message Request {
     ListQuery list_query = 1;           // 列表分页请求
     Item item = 2;  
     string database = 3;                // 数据库
+    bool easy = 5;          // 是否返回商品简单信息
 }
 
 message Response {
