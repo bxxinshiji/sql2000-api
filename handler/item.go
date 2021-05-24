@@ -20,5 +20,6 @@ func (srv *Item) Get(ctx context.Context, req *pb.Request, res *pb.Response) (er
 
 // EasyGet 获取商品简易信息
 func (srv *Item) EasyGet(ctx context.Context, req *pb.Request, res *pb.Response) (err error) {
+	req.Easy = true
 	return client.Call(ctx, srv.ServiceName, "Items.Get", req, res)
 }
