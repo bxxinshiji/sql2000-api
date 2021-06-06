@@ -15,7 +15,7 @@ import (
 //	Description // 权限解释
 var Conf config.Config = config.Config{
 	Name:    env.Getenv("MICRO_API_NAMESPACE", "go.micro.api.") + "sql2000-api",
-	Version: "v1.3.2",
+	Version: "v1.3.3",
 	Service: map[string]string{
 		"user":    env.Getenv("USER_SERVICE", "go.micro.srv.user"),
 		"sql2000": env.Getenv("SQL2000_SERVICE", "go.micro.srv.sql2000"),
